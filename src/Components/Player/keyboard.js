@@ -8,6 +8,7 @@ function actionByKey(key){
         KeyA: 'moveLeft',
         KeyD: 'moveRight',
         Space: 'jump',
+
         Digit1: 'dirt',
         Digit2: 'grass',
         Digit3: 'glass',
@@ -25,10 +26,11 @@ export const useKeyboard = () => {
         moveRight: false,
         jump: false,
 
-        textupe0: false,
-        textupe1: false,
-        textupe2: false,
-        textupe3: false,
+        dirt: false,
+        grass: false,
+        glass: false,
+        wood: false,
+        log: false,
     })
 
     const handleKeyDown = useCallback((e) => {
