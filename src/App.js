@@ -4,6 +4,7 @@ import {Physics} from "@react-three/cannon";
 import {Ground} from "./Components/Ground/Ground";
 import {Player} from "./Components/Player/Player";
 import {MouseCamera} from "./Components/MouseСamera/MouseСamera";
+import {Cubes} from "./Components/Cube/Cubes";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <MouseCamera/>
           <Physics>
               <Player/>
+              <Cubes/>
               <Ground/>
           </Physics>
       </Canvas>
