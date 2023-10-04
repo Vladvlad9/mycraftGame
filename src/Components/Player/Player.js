@@ -8,13 +8,13 @@ const Jump = 4
 const Speed = 4
 
 export const Player = () => {
-    const {moveBack, moveFor, moveRight, moveLeft, jump} = useKeyboard()
+    const {moveBackward, moveForward, moveRight, moveLeft, jump} = useKeyboard()
 
     const {camera} = useThree()
     const [ref, api] = useSphere(() => ({
         mass: 1,
         type: 'Dynamic',
-        position: [1, 0.5, 0]
+        position: [0, 1, 0]
     }))
 
     const getVelocity = useRef([0, 0, 0])
@@ -32,12 +32,12 @@ export const Player = () => {
 
         const direction = new Vector3()
 
-        const frontVector = new Vector3(0, 0,
-            (moveBack ? 1 : 0) - (moveFor ? 1: 0)
-        )
-
         const sideVector = new Vector3((moveLeft ? 1 : 0) - (moveRight ? 1: 0),
             0, 0
+        )
+
+        const frontVector = new Vector3(0, 0,
+            (moveBackward ? 1 : 0) - (moveForward ? 1: 0)
         )
 
         direction.subVectors(frontVector,sideVector).normalize().multiplyScalar(Speed).applyEuler(camera.rotation)
